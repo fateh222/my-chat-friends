@@ -9,9 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body class="<%= controller.controller_path %> <%= controller.action_name %>" data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>" >
+    <%= render 'shared/alert'%>
+    <%= render 'shared/header'%>
+    <main role="main">
+      <%= yield %>
+    </main>
+    <%= render 'shared/footer'%>
   </body>
 </html>
